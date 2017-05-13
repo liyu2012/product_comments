@@ -10,7 +10,7 @@ import LocalStorage from '../../js/localstorage'
 import {CITYNAME} from '../../config/localstorekey'
 import {bindActionCreators} from 'redux'
 import {connect}from 'react-redux'
-import * as userinfoFromFile from'../../actions/userinfo'
+import actions from'../../actions/userinfo'
  class App extends React.Component{
   constructor(...args){
     super(...args)
@@ -29,9 +29,10 @@ import * as userinfoFromFile from'../../actions/userinfo'
     //信息存储到redux
     this.props.userInfoActions.update(
       {
-       cityName
+       cityName:cityName
       }
     )
+  
     
     setTimeout(()=>{
          this.setState({
@@ -44,7 +45,7 @@ import * as userinfoFromFile from'../../actions/userinfo'
     return(
       this.state.initDone===true?
       <div>
-  <Switch> 
+        <Switch> 
   <Route exact path={`${this.props.match.url}/`} component={Home}/>
   <Route path={`${this.props.match.url}/city`} component={City}/>
   <Route path={`${this.props.match.url}/user`} component={User}/>
@@ -64,7 +65,7 @@ return {
 }
 function mapDispatchToProps(dispatch){
 return {
-  userInfoActions:bindActionCreators(userinfoFromFile,dispatch)
+  userInfoActions:bindActionCreators(actions,dispatch)
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(App)

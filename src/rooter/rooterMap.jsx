@@ -6,25 +6,30 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import {Provider} from 'react-redux'
 import configureStore from '../store/configstore'
+import '../static/css/common.less'
+import '../static/css/reset.css'
+import '../static/css/font.css'
+import HomeHeader from '../containers/HomeHeader'
 const store =configureStore()
 export default class RouteMap extends React.Component{
   updateHandle(){
     console.log('router变化后触发')
   }
   render(){
+    console.log(store.getState())
     return (
-     
+      <Provider store={store}> 
       <div>   
-       <Header title="我是页头"/>
+       <HomeHeader/>
       <Router onUpdate={this.updateHandle.bind(this)}>
         <div>
-           <Provider store={store}> 
-              <Route exact path="/" component={App}/> 
-            </Provider>  
+          
+        <Route exact path="/" component={App}/>   
         </div>
         </Router> 
         <Footer/>
         </div>
+         </Provider>  
       
      
     )

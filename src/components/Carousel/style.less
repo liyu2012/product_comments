@@ -1,0 +1,54 @@
+.indicator{
+  display: flex;
+  justify-content: space-around;
+  width: 50px;
+  margin:0 auto;
+  i{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: #aaa;
+  
+  }
+  i.active{
+    background-color: red;
+  }
+}
+.carousel{
+width: 100vw;
+  div>div>ul{
+      width: 100vw;
+  align-content: space-between;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  }
+  li{
+   
+    flex-basis:15%;
+    padding:10px 5px;
+    a>figure{
+       display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-wrap: wrap;
+      i,p{
+        flex-basis: 100%;
+        text-align: center;
+      }
+    }
+    
+  }
+ i{
+  color:red;
+  font-size: 20px;
+}
+p{
+  color:#888;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+}
