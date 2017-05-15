@@ -16,7 +16,7 @@ export default class Header extends React.Component{
    // console.log('will destoryed the component')
   }
   render(){
-    console.log(22,this)
+    //console.log(22,this)
     return (
      <div id="home-header" className=" clear-fix">
        <div className="float-left home-header-left">{this.props.cityName}<i className="icon-ctrl"></i></div>

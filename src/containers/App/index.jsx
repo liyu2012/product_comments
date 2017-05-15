@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route,Link,Switch} from 'react-router-dom'
-import Home from '../Home'
+import HomePage from '../HomeHeader'
 import NotFound from '../NotFound'
 import Detail from '../Detail'
 import City from '../City'
@@ -14,7 +14,6 @@ import actions from'../../actions/userinfo'
  class App extends React.Component{
   constructor(...args){
     super(...args)
-
     this.state={
       initDone:false
     }
@@ -38,7 +37,7 @@ import actions from'../../actions/userinfo'
          this.setState({
       initDone:true
     })
-    }, 2000);
+    }, 500);
  
   }
   render(){
@@ -46,7 +45,7 @@ import actions from'../../actions/userinfo'
       this.state.initDone===true?
       <div>
         <Switch> 
-  <Route exact path={`${this.props.match.url}/`} component={Home}/>
+  <Route exact path={`${this.props.match.url}/`} component={HomePage}/>
   <Route path={`${this.props.match.url}/city`} component={City}/>
   <Route path={`${this.props.match.url}/user`} component={User}/>
   <Route path={`${this.props.match.url}/search/:type(/:keyword)`} component={Search}/>

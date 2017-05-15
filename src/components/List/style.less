@@ -1,0 +1,56 @@
+.list-component{
+  h3{
+    background-color: #aaa;
+    height: 2em;
+    font-size: 20px;
+    line-height: 2em;
+    letter-spacing: 3px;
+    padding-left: 1em;
+  }
+  .item{
+    display: flex;
+    margin-bottom: .4em;
+    flex-wrap: nowrap;
+    .img{
+     
+      flex-basis: 33%;
+      height: 100px;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+     
+    }
+    .text{
+      position: relative;
+       margin-left: 1em;
+       .desc{
+         color:#888;
+         font-size: 16px;
+         margin-bottom: 1.5em;
+       }
+       .dis{
+         position: absolute;
+         top:0.5em;
+         right: 0.5em;
+       }
+       .selled{
+         position: absolute;
+         right: 0.5em;
+         bottom: 0.5em;
+       }
+       .price{
+         color:red;
+       }
+      h4{
+        margin-top: 0.3em;
+      font-size: 20px;
+      color:#333;
+      margin-bottom: 0.3em;
+      }
+      flex-basis: 69%;
+    }
+
+  }
+}

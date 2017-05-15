@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            //border: 1px solid green;
+        }
+        
+        #wrap {
+            height: 1500px;
+            position: relative;
+            // border: 1px solid red;
+            margin: 50px;
+        }
+        
+        #test {
+            width: 100px;
+            position: absolute;
+            top: 500px;
+            padding: 30px;
+            height: 100px;
+            margin: 20px;
+            // border: 10px solid green;
+            background-color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="test">
+
+        </div>
+    </div>
+
+    <script>
+        let x = document.getElementById('test')
+
+        window.addEventListener('scroll', () => {
+            setTimeout(() => {
+                console.log(document.body.scrollTop, document.body.scrollHeight - window.innerHeight, x.getBoundingClientRect())
+            }, 100)
+        })
+    </script>
+</body>
+
+</html>

@@ -9,21 +9,18 @@ import configureStore from '../store/configstore'
 import '../static/css/common.less'
 import '../static/css/reset.css'
 import '../static/css/font.css'
-import HomeHeader from '../containers/HomeHeader'
 const store =configureStore()
 export default class RouteMap extends React.Component{
   updateHandle(){
     console.log('router变化后触发')
   }
   render(){
-    console.log(store.getState())
+  //  console.log(store.getState())
     return (
       <Provider store={store}> 
       <div>   
-       <HomeHeader/>
       <Router onUpdate={this.updateHandle.bind(this)}>
-        <div>
-          
+        <div>  
         <Route exact path="/" component={App}/>   
         </div>
         </Router> 
