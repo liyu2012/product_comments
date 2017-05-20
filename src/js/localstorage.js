@@ -14,6 +14,8 @@ export default {
     },
     setItem: function(k, v) {
         try {
+            // console.log(k, v)
+
             localStorage.setItem(k, v)
         } catch (e) {
             if (true)

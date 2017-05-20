@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route,Link,Switch} from 'react-router-dom'
+import {Route,Link,Switch,BrowserRouter as Router} from 'react-router-dom'
 import HomePage from '../HomeHeader'
 import NotFound from '../NotFound'
 import Detail from '../Detail'
@@ -28,7 +28,7 @@ import actions from'../../actions/userinfo'
     //信息存储到redux
     this.props.userInfoActions.update(
       {
-       cityName:cityName
+       cityName
       }
     )
   
@@ -37,22 +37,25 @@ import actions from'../../actions/userinfo'
          this.setState({
       initDone:true
     })
-    }, 500);
+    }, 30);
  
   }
   render(){
+    console.log(this)
     return(
       this.state.initDone===true?
-      <div>
-        <Switch> 
-  <Route exact path={`${this.props.match.url}/`} component={HomePage}/>
-  <Route path={`${this.props.match.url}/city`} component={City}/>
-  <Route path={`${this.props.match.url}/user`} component={User}/>
-  <Route path={`${this.props.match.url}/search/:type(/:keyword)`} component={Search}/>
-  <Route path={`${this.props.match.url}/detail/:id`} component={Detail}/>
+      <Router> 
+        <div>
+      <Switch> 
+  <Route exact path={`${this.props.match.url}`} component={HomePage}/>
+  <Route path={`${this.props.match.url}user`} component={User}/>
+  <Route path={`/city`} component={City}/>
+  <Route path={`${this.props.match.url}search/:type/:keyword?`} component={Search}/>
+  <Route path={`${this.props.match.url}detail/:id`} component={Detail}/>
   <Route path="*" component={NotFound}/>
    </Switch>
       </div>
+       </Router>
     :<div>正在加载。。。</div>
     )
   }

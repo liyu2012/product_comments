@@ -9,6 +9,7 @@ import configureStore from '../store/configstore'
 import '../static/css/common.less'
 import '../static/css/reset.css'
 import '../static/css/font.css'
+import City from '../containers/City'
 const store =configureStore()
 export default class RouteMap extends React.Component{
   updateHandle(){
@@ -22,6 +23,7 @@ export default class RouteMap extends React.Component{
       <Router onUpdate={this.updateHandle.bind(this)}>
         <div>  
         <Route exact path="/" component={App}/>   
+        <Route path={`/city`} component={City}/>
         </div>
         </Router> 
         <Footer/>
