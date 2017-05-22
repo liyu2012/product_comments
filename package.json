@@ -1,12 +1,12 @@
 {
     "name": "react-1",
     "version": "1.0.0",
-    "description": "a enviroment building up  of react ",
-    "main": "index.js",
+    "description": "comments website for various products ",
+    "main": "./src/js/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "mock": "tsc ./src/mock/ser.ts && node ./src/mock/ser.js  ",
-        "server": "node ./src/mock/server.js"
+        "start": "set NODE_ENV=dev && webpack-dev-server --progress --colors",
+        "mock": "tsc ./src/mock/ser.ts --allowJS && node ./src/mock/ser.js  ",
+        "build": "rd/s/q dist && set NODE_DEV=production && webpack "
     },
     "keywords": [
         "react",
@@ -34,6 +34,7 @@
         "webpack-dev-server": "^2.4.5"
     },
     "dependencies": {
+        "body-parser": "^1.17.2",
         "fetch": "^1.1.0",
         "react": "^15.5.4",
         "react-dom": "^15.5.4",

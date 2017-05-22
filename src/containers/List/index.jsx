@@ -10,17 +10,16 @@ export default class List extends React.Component{
    
     return(
       <div>
-        <Router>
           <div>
-  <ul>
+        <ul>
           {
-            arr.map((item,index)=><Link key={index} to={"/detail/"+(index+1)}>jump back to{item}</Link>)
+            arr.map((item,index)=><div key={index}><Link  to={"/detail/"+(index+1)}>jump back to{item}</Link></div>)
           }
         </ul>
-        <Route path="/detail/:id" component={Detail}></Route>
+        
           </div>
   
-        </Router>
+       
     
       </div>
     )

@@ -1,8 +1,9 @@
 import React from 'react'
 import './style.less'
-export default class Hr extends React.Component{
+import {withRouter}from 'react-router-dom'
+ class Hr extends React.Component{
   back(){
-    window.history.back()
+    this.props.history.goBack()
   }
   render(){
     return(
@@ -14,3 +15,4 @@ export default class Hr extends React.Component{
     )
   }
 }
+export default withRouter(Hr)

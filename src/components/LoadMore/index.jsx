@@ -4,10 +4,13 @@ import './style.less'
    componentDidMount(){
         let timer
      function cb(){
-      // console.log(window.screen.height,this.refs.loadmore.getBoundingClientRect().top)
-       if(window.screen.height>=this.refs.loadmore.getBoundingClientRect().top){
+     if(this.refs.loadmore){
+          if(window.screen.height>=this.refs.loadmore.getBoundingClientRect().top){
          this.loadMore()
        }
+     }
+      // console.log(window.screen.height,this.refs.loadmore.getBoundingClientRect().top)
+   
      }
       window.addEventListener('scroll',()=>{
         if(this.props.isLoadingMore){

@@ -1,14 +1,18 @@
 import React from 'react'
-
+import Header from '../../components/Hr'
+import ProductDetail from './subpage/ProductInfo'
+import Comments from './subpage/comments'
+import Buy from './subpage/buy'
 export default class Detail extends React.Component{
-  componentWillMount(){
-    console.log(this)
-  }
+
   render(){
+    const id=this.props.match.params.id-1
     return(
       <div>
-        
-       <p>Detail,url 参数：{this.props.match.params.id}</p>
+        <Header title="商品详情"/>
+        <ProductDetail id={id} />
+        <Buy id={id}/>
+       <Comments id={id}/>
       </div>
     )
   }

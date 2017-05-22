@@ -4,6 +4,7 @@ import HomePage from '../HomeHeader'
 import NotFound from '../NotFound'
 import Detail from '../Detail'
 import City from '../City'
+import Login from '../Login'
 import User from '../User'
 import Search from '../Search'
 import LocalStorage from '../../js/localstorage'
@@ -41,7 +42,7 @@ import actions from'../../actions/userinfo'
  
   }
   render(){
-    console.log(this)
+    //console.log(this)
     return(
       this.state.initDone===true?
       <Router> 
@@ -50,6 +51,7 @@ import actions from'../../actions/userinfo'
   <Route exact path={`${this.props.match.url}`} component={HomePage}/>
   <Route path={`${this.props.match.url}user`} component={User}/>
   <Route path={`/city`} component={City}/>
+  <Route path={`/login/:route?`} component={Login}/>
   <Route path={`${this.props.match.url}search/:type/:keyword?`} component={Search}/>
   <Route path={`${this.props.match.url}detail/:id`} component={Detail}/>
   <Route path="*" component={NotFound}/>

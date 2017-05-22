@@ -50,7 +50,7 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname + '/output/',
+        path: __dirname + '/dist/',
         filename: './js/bundle.js'
     }
 }

@@ -1,14 +1,5 @@
-.home-header-right{
-width:40px;
-text-align: center;
-}
-.home-header-left{
-  width: 50px;
-  text-align: right;
- 
 
-}
-#home-header{
+#home-header-search{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,15 +7,20 @@ text-align: center;
   background-color: rgb(223,32,61);
   height:1.3em;
  padding:10px 5px;
-  *{
+ *{
     color:#fff;
-    font-size: 16px;
+    font-size:20px;
+    font-weight: bolder;
     line-height: 1;
     text-decoration: none;
+   
+  }
+  span{
+    margin-left: 1em;
   }
 }
 .home-header-middle{
-  flex-basis: 80%;
+  flex-basis: 70%;
   display: flex;
   margin:0 10px;
   align-items: center;
@@ -45,8 +41,11 @@ text-align: center;
   color:#ccc !important;
 }
 input{
-  font-size: 14px !important;
-  font-weight: normal;
+  position: relative;
+  top:-3px;
+  text-indent: 1em;
+  font-size: 13px !important;
+  font-weight: normal!important;
   color:#888!important;
   width:90%;
   border-radius: inherit;

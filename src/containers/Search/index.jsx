@@ -1,13 +1,14 @@
 import React from 'react'
+import SearchHeader from '../../components/SearchHeader'
+import List from "../List"
 export default class Search extends React.Component{
 
   render(){
-      console.log(this)
+      //console.log(this.props.params.match.keyword)
     return(
       <div>
-         类型：<p>{this.props.match.params.type}</p>
-        关键字：<p>{this.props.match.params.keyword}</p>
-        <p>search</p>
+   <SearchHeader keyword={this.props.match.params.keyword}/>
+   <List/>
       </div>
     )
   }

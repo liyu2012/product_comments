@@ -36,7 +36,7 @@ const page=this.state.page
 setTimeout(()=>{
 const result=this.getListData(cityName,page)
 this.resultHandle(result)
-},2000)
+},500)
 
    }
 
