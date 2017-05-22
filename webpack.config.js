@@ -1,7 +1,7 @@
-var webpack = require('webpack')
-var path = require('path')
-var OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const path = require('path')
+const OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     context: __dirname + '/src',
     entry: "./js/index.jsx",
