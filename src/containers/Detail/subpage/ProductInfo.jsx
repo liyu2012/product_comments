@@ -14,7 +14,6 @@ componentDidMount(){
   fetch(`/api/detail/${this.props.id}`,Options).then(res=>{
    return  res.json()
   }).then(json=>{
-    console.log(json)
     this.setState({
       info:json
     })

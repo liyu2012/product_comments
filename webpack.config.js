@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+console.log(process.env.NODE_ENV)
 module.exports = {
     context: __dirname + '/src',
     entry: "./js/index.jsx",
@@ -10,6 +11,7 @@ module.exports = {
     },
     devServer: {
         inline: true,
+        historyApiFallback: true,
         proxy: {
             '/api/*': {
                 target: "http://127.0.0.1:8888",
@@ -23,7 +25,12 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: 'index.html'
-        })
+        }),
+
+        new webpack.DefinePlugin({
+            __DEV__: true
+
+        }),
     ],
     module: {
         loaders: [{

@@ -18,7 +18,6 @@ componentDidMount(){
   fetch(`/api/comments/${this.props.id}/${this.state.page}`,Options).then(res=>{
    return  res.json()
   }).then(json=>{
-    //console.log('comment',json)
     this.setState({
      comments:json
     })
@@ -30,7 +29,6 @@ this.setState({
   isLoadingMore:true,
   page:++this.state.page
 })
-setTimeout(()=>{
 
       const Options={
        method:"GET"
@@ -44,7 +42,7 @@ setTimeout(()=>{
      isLoadingMore:false
     })
   })
-},500)
+
 
    }
   render(){

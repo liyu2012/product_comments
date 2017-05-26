@@ -33,7 +33,6 @@ import actions from'../../actions/userinfo'
       }
     )
   
-    
     setTimeout(()=>{
          this.setState({
       initDone:true
@@ -58,7 +57,7 @@ import actions from'../../actions/userinfo'
    </Switch>
       </div>
        </Router>
-    :<div>正在加载。。。</div>
+    :<div>正在加载......</div>
     )
   }
 } 
