@@ -8,20 +8,15 @@ import actions from'../../actions/userinfo'
 import LocalStorage from '../../js/localstorage'
  class City extends React.Component{
    changeCity(city){
-     //console.log(city)
      if(!city){
        return
      }
-     //console.log('city',city)
-     //修改re'du'xredux
+     //modify redux
      const userinfo=this.props.userinfo
      userinfo.cityName=city
-     
      this.props.userinfoActions.update(userinfo)
      localStorage.setItem('cityName',city)
-    //console.log(this.props.userinfo,localStorage.getItem('cityName'))
     window.location.href='http://localhost:8080'
-//this.
    }
   render(){
     return(

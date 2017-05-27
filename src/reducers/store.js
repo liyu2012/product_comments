@@ -13,7 +13,7 @@ export default function store(state = initialState, action) {
                     return item
             })
         default:
-            //console.log(11, actionTypes.USERINFO_UPDATE)
+
             return state
     }
 }

@@ -3,7 +3,6 @@ import './style.less'
 export default class Star extends React.Component{
 
   render(){
-   // console.log(this)
      const star=this.props.star
     return(
       <div className="star">

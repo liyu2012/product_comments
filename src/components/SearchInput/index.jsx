@@ -28,7 +28,6 @@ if(e.keyCode!==13)
   return 
 }
 else{
- // console.log(e.target.value)
   this.props.history.push(`/search/all/${e.target.value}`)
 }
 

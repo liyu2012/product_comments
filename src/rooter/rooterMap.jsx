@@ -66,7 +66,6 @@ export default class RouteMap extends React.Component{
       <Router>
         <div>  
         <Route exact path="/" component={App}/>   
-        <Route path={`/city`} component={City}/>
         </div>
         </Router>    
          </Provider>     

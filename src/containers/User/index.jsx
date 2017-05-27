@@ -7,7 +7,6 @@ import UserInfo from '../../components/UserInfo'
 import OrderList from './subpage/OrderList'
  class User extends React.Component{
   componentDidMount(){
-    //console.log('user',this)
     if(!this.props.userinfo.username)
       {
         this.props.history.push('/login')

@@ -22,7 +22,6 @@ import SearchInput from '../SearchInput'
      window.history.back()
   }
   render(){
-   // console.log(this)
     return (
      <div id="home-header-search" className=" clear-fix">
        <span onClick={this.back.bind(this)}>&lt;</span>

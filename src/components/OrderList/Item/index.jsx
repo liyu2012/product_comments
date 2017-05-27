@@ -28,7 +28,6 @@ handleCancel(){
 handleSubmit(){
   const text=this.refs.commenttext.value.trim()
   const id=this.props.data.id||1
-  console.log(id,text)
   if(!text)
   return
   this.props.handleSubmit(id,text,this.commentOK.bind(this))

@@ -15,10 +15,9 @@ import './style.less'
        },
        method:'GET'
      }).then(res=>{
-      // console.log(res)
        return res.json()
      }).then(json=>{
-      // console.log(json)
+      
        if(json.length){
 this.setState({
   data:json

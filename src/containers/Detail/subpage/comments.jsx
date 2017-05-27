@@ -36,7 +36,6 @@ this.setState({
   fetch(`/api/comments/${this.props.id}/${this.state.page}`,Options).then(res=>{
    return  res.json()
   }).then(json=>{
-   // console.log('comment',json)
     this.setState({
      comments:this.state.comments.concat(json),
      isLoadingMore:false
@@ -47,8 +46,7 @@ this.setState({
    }
   render(){
     return(
-      <div>
-       
+      <div>     
         {this.state.comments?<Comment comments={this.state.comments}/>:''}
          {
           this.state.hasMore?<LoadMore loadMoreFn={this.loadMoreData.bind(this)} isLoadingMore={this.state.isLoadingMore}/>:''

@@ -3,7 +3,6 @@ import './style.less'
 import '../../static/icomoon/style.css'
 import SearchInput from '../SearchInput'
 import { Link,Route,withRouter,BrowserRouter as Router,browserHistory} from 'react-router-dom'
-//import  * as RouterDOM from 'react-router'
  class Header extends React.Component{
   constructor(){
     super()
@@ -32,7 +31,6 @@ import { Link,Route,withRouter,BrowserRouter as Router,browserHistory} from 'rea
   }
 
   render(){
-   // console.log(this)
     return (
      <div id="home-header" className=" clear-fix">
          <div>

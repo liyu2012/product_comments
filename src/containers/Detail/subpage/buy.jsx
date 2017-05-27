@@ -23,7 +23,6 @@ this.props.history.push('/user')
 }
 
 loginCheck(){
-  console.log(this)
   const id=this.props.id
   const userinfo=this.props.userinfo
   if(!userinfo.username){
@@ -58,10 +57,8 @@ return
 const id=this.props.id
 const storeActions=this.props.storeActions
 if(this.state.isStore){
-  //cancel like
   storeActions.remove({id:id})
 }
-//like
 else{
   storeActions.add({id:id})
 }

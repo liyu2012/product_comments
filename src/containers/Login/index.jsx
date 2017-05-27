@@ -15,7 +15,6 @@ goUserPage(){
   this.props.history.push('/user')
 }
   doCheck(){
-console.log(this.props)
 if(this.props.userinfo.userName){
 //到用户界面
 this.goUserPage()
@@ -23,7 +22,6 @@ this.goUserPage()
 this.setState({
   checking:false
 })
-
 }
   }
   render(){
@@ -35,15 +33,12 @@ this.setState({
     )
   }
 loginHandle(username){
-  //store username
   const actions=this.props.userInfoActions
   let userinfo=this.props.userinfo
   userinfo.username=username
   actions.update(userinfo)
-  
   // navigate to userpage
   const match=this.props.match
-  console.log('234',match)
   if(match.params.route){
 this.props.history.push(`/${match.params.route}`)
   }

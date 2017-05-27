@@ -27,7 +27,6 @@ resultHandle(result){
   })
 }
    loadMoreData(){
-     //console.log(this)
 this.setState({
   isLoadingMore:true
 })
@@ -60,7 +59,6 @@ this.resultHandle(result)
    }
 
   render(){
- //console.log(this.state.data)
     return(<div>
         {
           this.state.data.length?<ListC data={this.state.data}/>:<div>加载中。。。</div>

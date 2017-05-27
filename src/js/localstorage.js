@@ -5,7 +5,7 @@ export default {
             v = localStorage.getItem(key)
 
         } catch (e) {
-            if (true) {
+            if (__DEV__) {
                 console.error('localStorage.getItem error', e.message)
             }
         } finally {
@@ -14,11 +14,9 @@ export default {
     },
     setItem: function(k, v) {
         try {
-            // console.log(k, v)
-
             localStorage.setItem(k, v)
         } catch (e) {
-            if (true)
+            if (__DEV__)
                 console.error('localStorage.setItem error', e.message)
         }
     }

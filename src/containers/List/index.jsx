@@ -15,12 +15,8 @@ export default class List extends React.Component{
           {
             arr.map((item,index)=><div key={index}><Link  to={"/detail/"+(index+1)}>jump back to{item}</Link></div>)
           }
-        </ul>
-        
+        </ul>     
           </div>
-  
-       
-    
       </div>
     )
   }

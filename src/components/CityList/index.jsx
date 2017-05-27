@@ -2,7 +2,6 @@ import React from 'react'
 import './style.less'
 export default class Hr extends React.Component{
 clickHandle(e){
-  //console.log(e.target.innerText)
   this.props.changeCity(e.target.innerText)
 }
 

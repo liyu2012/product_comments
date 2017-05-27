@@ -22,7 +22,7 @@ componentDidMount(){
   render(){
     return(
       <div>
-       {this.state.info?<ProductInfo data={this.state.info}/>:''}
+       {!!this.state.info?<ProductInfo data={this.state.info}/>:''}
       </div>
     )
   }
