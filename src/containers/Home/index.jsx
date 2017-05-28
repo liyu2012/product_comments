@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../components/HomeHeader'
+import HomeHeader from '../../components/HomeHeader'
 import {connect } from 'react-redux'
 import Carousel from '../../components/Carousel'
 import AD from './subpage/ad.jsx'
@@ -15,7 +15,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
   render(){
     return(
       <div className="header">
-       <Header cityName={this.props.userinfo.cityName}></Header>
+       <HomeHeader history={this.props.history} cityName={this.props.userinfo.cityName}/>
        <Carousel/>
        <div  className="seperator">      
        </div>

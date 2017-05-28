@@ -45,7 +45,7 @@ this.resultHandle(result)
   render(){
     return(<div>
         {
-          this.state.data.length?<LikingList data={this.state.data}/>:<div>加载中...</div>
+          this.state.data.length?<LikingList title="猜你喜欢" data={this.state.data}/>:<div>加载中...</div>
         } 
         {
           this.state.hasMore?<LoadMore loadMoreFn={this.loadMoreData.bind(this)} isLoadingMore={this.state.isLoadingMore}/>:null

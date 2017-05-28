@@ -1,11 +1,13 @@
 import React from 'react'
 import './style.less'
 import '../../static/icomoon/style.css'
-import { Link,Route,withRouter,BrowserRouter as Router,browserHistory} from 'react-router-dom'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { Link,Route,BrowserRouter as Router,browserHistory} from 'react-router-dom'
 
 class Search extends React.Component{
 constructor(){
-  super()
+   super()
+   this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
   this.state={
     value:''
   }
@@ -28,7 +30,8 @@ if(e.keyCode!==13)
   return 
 }
 else{
-  this.props.history.push(`/search/all/${e.target.value}`)
+  //this.props.history.push(`/search/all/${this.state.value}`)
+  this.props.handleEnter(this.state.value)
 }
 
 
@@ -42,4 +45,4 @@ else{
     )
   }
 } 
-export default withRouter(Search)
+export default Search

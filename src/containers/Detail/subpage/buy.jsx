@@ -4,9 +4,11 @@ import {bindActionCreators}from 'redux'
 import {withRouter} from 'react-router-dom'
 import BuyandLlike from '../../../components/BuyandLlike'
 import storeActionsFromFile from '../../../actions/store'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
  class Buy extends React.Component{
   constructor(){
     super()
+    this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
     this.state={
       isStore:false
     }
@@ -26,7 +28,7 @@ loginCheck(){
   const id=this.props.id
   const userinfo=this.props.userinfo
   if(!userinfo.username){
-    this.props.history.push('/login/detail/'+id)
+    //this.props.history.push('/login/detail/'+id)
     return false
   }
   return true

@@ -1,6 +1,5 @@
 import {Route, BrowserRouter as Router,Link} from 'react-router-dom'
 import React from 'react'
-import List from '../containers/List'
 import App from '../containers/App'
 import Header from '../components/HomeHeader'
 import {Provider} from 'react-redux'

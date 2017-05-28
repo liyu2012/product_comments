@@ -26,16 +26,16 @@ this.setState({
      <div >
   <ReactSwipe className="carousel" swipeOptions={opts}>
     <div><ul>
-      <li><Link to={`/search/music`}><figure><i className="icon-home"></i><p>房产</p></figure></Link></li>          
-      <li><Link to={`/search/music`}><figure><i className="icon-image"></i><p>照片</p></figure></Link></li>   
+      <li><Link to={`/search/house`}><figure><i className="icon-home"></i><p>房产</p></figure></Link></li>          
+      <li><Link to={`/search/photos`}><figure><i className="icon-image"></i><p>照片</p></figure></Link></li>   
       <li><Link to={`/search/music`}><figure><i className="icon-headphones"></i><p>音乐</p></figure></Link></li>   
-      <li><Link to={`/search/music`}><figure><i className="icon-play"></i><p>视频</p></figure></Link></li>   
-      <li><Link to={`/search/music`}><figure><i className="icon-connection"></i><p>无线网</p></figure></Link></li>   
-      <li><Link to={`/search/music`}><figure><i className="icon-stack"></i><p>书籍</p></figure></Link></li>   
-      <li><Link to={`/search/music`}><figure><i className="icon-folder"></i><p>文件</p></figure></Link></li>   
-      <li><Link to={`/search/music`}><figure><i className="icon-coin-dollar"></i><p>金融</p></figure></Link></li>   
-      <li><Link to={`/search/music`}><figure><i className="icon-lifebuoy"></i><p>核产品</p></figure></Link></li>   
-      <li><Link to={`/search/music`}><figure><i className="icon-hammer"></i><p>五金</p></figure></Link></li>   
+      <li><Link to={`/search/videos`}><figure><i className="icon-play"></i><p>视频</p></figure></Link></li>   
+      <li><Link to={`/search/wifi`}><figure><i className="icon-connection"></i><p>无线网</p></figure></Link></li>   
+      <li><Link to={`/search/books`}><figure><i className="icon-stack"></i><p>书籍</p></figure></Link></li>   
+      <li><Link to={`/search/files`}><figure><i className="icon-folder"></i><p>文件</p></figure></Link></li>   
+      <li><Link to={`/search/financial`}><figure><i className="icon-coin-dollar"></i><p>金融</p></figure></Link></li>   
+      <li><Link to={`/search/nuclear`}><figure><i className="icon-lifebuoy"></i><p>核产品</p></figure></Link></li>   
+      <li><Link to={`/search/things`}><figure><i className="icon-hammer"></i><p>五金</p></figure></Link></li>   
     </ul></div>
     <div><ul>
      <li><Link to={`/search/music`}><figure><i className="icon-home"></i><p>房产</p></figure></Link></li>          

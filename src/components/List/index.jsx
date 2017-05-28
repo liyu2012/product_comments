@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.less'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import  {Link} from  'react-router-dom'
  export default class ListC extends React.Component{
      constructor(...args){
      super(...args)
@@ -10,10 +11,11 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
  const data=this.props.data
     return(
       <div className="list-component">
-        <h3>猜你喜欢</h3>
+        <h3>{this.props.title}</h3>
        {
          data.map((item,index)=>{
-           return <div className="item" key={index}>
+           return <Link to={`/detail/${item.id}`} key={index} >
+            <div className="item" >
              <div className="img"><img src={item.img}alt=""/></div>
              <div className="text">
                <h4>{item.title}</h4>
@@ -22,8 +24,10 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
                <span className="dis">{item.dis}</span>
                <span className="selled">已售出：{item.selled}</span>
              </div>
-             
              </div> 
+             </Link>
+              
+              
          })
        }
 </div>

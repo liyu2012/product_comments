@@ -1,9 +1,12 @@
 import React from 'react'
 import Comment from '../../../components/Commenta'
 import {LoadMore}from '../../../components/LoadMore'
+import {getComments}from '../../../fetch/detail/detail'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 export default class Comments extends React.Component{
 constructor(){
   super()
+   this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
   this.state={
     comments:false,
     isLoadingMore:false,
@@ -12,10 +15,8 @@ constructor(){
   }
 }
 componentDidMount(){
-    const Options={
-    method:"GET"
-  }
-  fetch(`/api/comments/${this.props.id}/${this.state.page}`,Options).then(res=>{
+
+getComments(this.props.id,this.state.page).then(res=>{
    return  res.json()
   }).then(json=>{
     this.setState({
@@ -29,11 +30,7 @@ this.setState({
   isLoadingMore:true,
   page:++this.state.page
 })
-
-      const Options={
-       method:"GET"
-  }
-  fetch(`/api/comments/${this.props.id}/${this.state.page}`,Options).then(res=>{
+getComments(this.props.id,this.state.page).then(res=>{
    return  res.json()
   }).then(json=>{
     this.setState({
