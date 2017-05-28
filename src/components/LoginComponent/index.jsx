@@ -1,19 +1,20 @@
 import React from 'react'
 import './style.less'
+ import PureRenderMixin from 'react-addons-pure-render-mixin' 
 export default class Search extends React.Component{
+ 
 constructor(){
   super()
+  this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
   this.state={
     phone:''
   }
 }
-
 handlePhone(e){
   this.setState({
     phone:e.target.value
   })
 }
-
 handleClick(){
   const username=this.state.phone
   const loginHandle=this.props.loginHandle

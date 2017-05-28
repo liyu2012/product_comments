@@ -1,11 +1,35 @@
 import React from 'react'
 import Oderlist from '../../../components/OrderList'
+import {getOrderlist,submitComments} from '../../../fetch/user/user'
+import PureRenderMixin from 'react-addons-pure-render-mixin' 
+import {LoadMore}from '../../../components/LoadMore'
 export default class User extends React.Component{
-   constructor(){
-     super()
+   constructor(...args){
+     super(...args)
+    this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
      this.state={
-       data:[]
+       data:[],
+       hasMore:false,
+       isLoadingMore:false,
+       page:0
      }
+   }
+ loadMoreData(){
+    const username=this.props.userName
+    this.setState({
+  isLoadingMore:true,
+  page:this.state.page+1
+})
+  const page=this.state.page
+  getOrderlist(username,page).then(res=>{
+       return res.json()
+  }).then(json=>{
+this.setState({
+  data:this.state.data.concat(json.data),
+  isLoadingMore:false
+})
+  })
+
    }
    obj2params(obj){
      var result=''
@@ -19,37 +43,27 @@ export default class User extends React.Component{
  return result
    }
    handleSubmit(id,value,cb){
-     fetch('api/submitcomment',{
-       method:'POST',
-       headers:{
-         'Accept':'application/json,text/plain,*/*',
-         'Content-type':'application/x-www-form-urlencoded'
-       },
-       body:this.obj2params({
+     submitComments('api/submitcomment',this.obj2params({
          commenttext:value,
          id
-       })
-     }).then(res=>{
+       })).then(res=>{
        return res.json()
       
      }).then(json=>{
 if(json.text==='ok')
          cb()
+
      })
    }
   componentDidMount(){
     const username=this.props.userName
     if(username){
- fetch(`api/orderlist/${username}`,{
-       headers:{
-'Accept':'application/json,text/plain,*/*'
-       },
-       method:'GET'
-     }).then(res=>{
-return res.json()
+      getOrderlist(username,0).then(res=>{
+       return res.json()
   }).then(json=>{
 this.setState({
-  data:json
+  data:json.data,
+  hasMore:json.hasMore
 })
   })
     }
@@ -61,6 +75,7 @@ this.setState({
     {
        this.state.data? <Oderlist handleSubmit={this.handleSubmit.bind(this)} data={this.state.data}/>:''
      }
+     {this.state.hasMore?<LoadMore loadMoreFn={this.loadMoreData.bind(this)} isLoadingMore={this.state.isLoadingMore}/>:null}
       </div>
     )
   }

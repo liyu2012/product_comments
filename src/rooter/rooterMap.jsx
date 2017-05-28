@@ -7,6 +7,7 @@ import configureStore from '../store/configstore'
 import '../static/css/common.less'
 import '../static/css/reset.css'
 import '../static/icomoon/style.css'
+import Footer from '../components/Footer'
 import City from '../containers/City'
 import PureRenderMixin from 'react-addons-pure-render-mixin' 
 const store =configureStore()
@@ -70,8 +71,11 @@ export default class RouteMap extends React.Component{
       <Router>
         <div>  
         <Route exact path="/" component={App}/>   
+        <Footer/>
         </div>
+         
         </Router>    
+       
          </Provider>     
     )
   }

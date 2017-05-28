@@ -5,7 +5,13 @@ import Header from '../../components/Header'
 import {bindActionCreators} from 'redux'
 import UserInfo from '../../components/UserInfo'
 import OrderList from './subpage/OrderList'
+import PureRenderMixin from 'react-addons-pure-render-mixin' 
  class User extends React.Component{
+    constructor(...args){
+    super(...args)
+    this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
+ 
+  }
   componentDidMount(){
     if(!this.props.userinfo.username)
       {

@@ -11,6 +11,7 @@ import LocalStorage from '../../js/localstorage'
 import {CITYNAME} from '../../config/localstorekey'
 import {bindActionCreators} from 'redux'
 import {connect}from 'react-redux'
+
 import actions from'../../actions/userinfo'
 import PureRenderMixin from 'react-addons-pure-render-mixin' 
  class App extends React.Component{
@@ -49,7 +50,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
   <Route path={`/city`} component={City}/>
   <Route path={`${this.props.match.url}user`} component={User}/>
   <Route path={`/city`} component={City}/>
-  <Route path={`/login/:route?`} component={Login}/>
+  <Route path={`/login/:route?/:id?`} component={Login}/>
   <Route path={`${this.props.match.url}search/:type/:keyword?`} component={Search}/>
   <Route path={`${this.props.match.url}detail/:id`} component={Detail}/>
   <Route path="*" component={NotFound}/>

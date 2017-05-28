@@ -15,31 +15,37 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
   }
 
 buyHandle(){
+ // console.log('qwer')
 const loginFlag=this.loginCheck()
 if(!loginFlag)
 return
-//purchase
+//buy somethings
 
-//navigate to homepage 
+
+//navigate to user page 
 this.props.history.push('/user')
 }
 
 loginCheck(){
   const id=this.props.id
+  console.log(id)
   const userinfo=this.props.userinfo
   if(!userinfo.username){
-    //this.props.history.push('/login/detail/'+id)
+    this.props.history.push('/login/detail/'+id)
     return false
   }
   return true
 
 }
 componentDidMount(){
+  //console.log(this)
   this.loginCheck()
   this.checkStoreState()
+  
 }
 
 checkStoreState(){
+//console.log(this.props)
 const id=this.props.id
 const store=this.props.store
 store.some(item=>{
@@ -64,6 +70,7 @@ if(this.state.isStore){
 else{
   storeActions.add({id:id})
 }
+//console.log(this.state)
 this.setState({
   isStore:!this.state.isStore
 })
@@ -77,7 +84,7 @@ this.setState({
     )
   }
 } 
-function mapActionsToprops(dispatch){
+function mapActionsToProps(dispatch){
   return {
 storeActions:bindActionCreators(storeActionsFromFile,dispatch)
   }
@@ -89,4 +96,4 @@ function mapStateToProps(state){
     store:state.store
   }
 }
-export default withRouter(connect(mapStateToProps,mapActionsToprops)(Buy))
+export default withRouter(connect(mapStateToProps,mapActionsToProps)(Buy))

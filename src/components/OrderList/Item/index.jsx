@@ -54,7 +54,7 @@ commentOK(){
           </div>
         
         </figure>
-        {this.state.commentState===1?<div><textarea name="" ref="commenttext" cols="30" rows="10"></textarea>
+        {this.state.commentState===1?<div className="text-wrap"><textarea name="" ref="commenttext"></textarea>
         <br/>
         <button className="comment-button" onClick={this.handleSubmit.bind(this)}>提交</button><button className="commented" className="comment-button"  onClick={this.handleCancel.bind(this)}>取消</button>
         </div>:''}

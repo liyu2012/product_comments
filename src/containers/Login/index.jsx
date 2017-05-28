@@ -4,9 +4,11 @@ import {bindActionCreators} from 'redux'
 import Header from '../../components/Header'
 import actions from'../../actions/userinfo'
 import LoginComponent from '../../components/LoginComponent'
+import PureRenderMixin from 'react-addons-pure-render-mixin' 
 class Login extends React.Component{
   constructor(){
     super()
+      this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
     this.state={
       checking:true
     }
@@ -14,8 +16,11 @@ class Login extends React.Component{
 goUserPage(){
   this.props.history.push('/user')
 }
+
   doCheck(){
-if(this.props.userinfo.userName){
+    //console.log(this.props.userinfo)
+if(this.props.userinfo.username)
+{
 //到用户界面
 this.goUserPage()
 }else{
@@ -38,12 +43,13 @@ loginHandle(username){
   userinfo.username=username
   actions.update(userinfo)
   // navigate to userpage
+  console.log(this.props.match)
   const match=this.props.match
-  if(match.params.route){
-this.props.history.push(`/${match.params.route}`)
+  if(this.props.match.params.route){
+this.props.history.push(`/${match.params.route}/${match.params.id}`)
   }
   else{
-this.props.history.push('/')
+this.goUserPage()
   }
 }
   componentDidMount(){

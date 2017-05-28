@@ -60,38 +60,42 @@ module.exports = [{
     },
     {
         id: 1,
-        list: [{
-                id: 23,
-                commentState: 0,
-                img: "http://localhost:8080/src/static/imgs/4.jpg",
-                price: 45.5,
-                count: 1,
-                title: "肯德基"
-            },
-            {
-                id: 21,
-                commentState: 2,
-                img: "http://localhost:8080/src/static/imgs/4.jpg",
-                price: 8,
-                count: 4,
-                title: "福建馄饨"
-            },
-            {
-                id: 2,
-                commentState: 2,
-                img: "http://localhost:8080/src/static/imgs/1.jpg",
-                price: 80,
-                count: 4,
-                title: "时尚餐厅"
-            },
-            {
-                id: 1,
-                commentState: 0,
-                img: "http://localhost:8080/src/static/imgs/4.jpg",
-                price: 4,
-                count: 4,
-                title: "特色饮料"
-            },
-        ]
+        list: {
+            hasMore: true,
+            data: [{
+                    id: 23,
+                    commentState: 0,
+                    img: "http://localhost:8080/src/static/imgs/4.jpg",
+                    price: 45.5,
+                    count: 1,
+                    title: "肯德基"
+                },
+                {
+                    id: 21,
+                    commentState: 2,
+                    img: "http://localhost:8080/src/static/imgs/4.jpg",
+                    price: 8,
+                    count: 4,
+                    title: "福建馄饨"
+                },
+                {
+                    id: 2,
+                    commentState: 2,
+                    img: "http://localhost:8080/src/static/imgs/1.jpg",
+                    price: 80,
+                    count: 4,
+                    title: "时尚餐厅"
+                },
+                {
+                    id: 1,
+                    commentState: 0,
+                    img: "http://localhost:8080/src/static/imgs/4.jpg",
+                    price: 4,
+                    count: 4,
+                    title: "特色饮料"
+                },
+            ]
+        }
+
     }
 ]

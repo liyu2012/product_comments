@@ -21,7 +21,7 @@ import SearchInput from '../SearchInput'
    // console.log('will destoryed the component')
   }*/
   back(){
-    this.props.history.goBack(-1)
+    this.props.history.goBack()
   }
     handleEnter(value){
     //console.log(this)

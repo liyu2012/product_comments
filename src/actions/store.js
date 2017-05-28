@@ -16,7 +16,7 @@ const ACTIONS = {
     },
     remove: function(data) {
         return {
-            type: actions.STORE_ADD,
+            type: actions.STORE_REMOVE,
             data
         }
     }
