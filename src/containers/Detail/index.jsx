@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../components/Hr'
+import Header from '../../components/Header'
 import ProductDetail from './subpage/ProductInfo'
 import Comments from './subpage/comments'
 import Buy from './subpage/buy'

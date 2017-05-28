@@ -2,15 +2,20 @@ import {Route, BrowserRouter as Router,Link} from 'react-router-dom'
 import React from 'react'
 import List from '../containers/List'
 import App from '../containers/App'
-import Header from '../components/Header'
+import Header from '../components/HomeHeader'
 import {Provider} from 'react-redux'
 import configureStore from '../store/configstore'
 import '../static/css/common.less'
 import '../static/css/reset.css'
 import '../static/icomoon/style.css'
 import City from '../containers/City'
+import PureRenderMixin from 'react-addons-pure-render-mixin' 
 const store =configureStore()
 export default class RouteMap extends React.Component{
+  constructor(){
+    super()
+     this.shouldCompoentUpdate=PureRenderMixin.shouldComponentUpdate
+  }
   componentDidMount(){
     //pure redux example  
 //     const action1={

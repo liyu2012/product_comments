@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import actions from'../../actions/userinfo'
-import Header from '../../components/Hr'
+import Header from '../../components/Header'
 import {bindActionCreators} from 'redux'
 import UserInfo from '../../components/UserInfo'
 import OrderList from './subpage/OrderList'

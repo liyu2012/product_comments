@@ -1,7 +1,13 @@
 import React from 'react'
 import './style.less'
 import {withRouter}from 'react-router-dom'
- class Hr extends React.Component{
+import PureRenderMixin from 'react-addons-pure-render-mixin'
+ class CurrentCity extends React.Component{
+   constructor(...args){
+    super(...args)
+    this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
+ 
+  }
   back(){
     this.props.history.goBack()
   }
@@ -9,10 +15,8 @@ import {withRouter}from 'react-router-dom'
     return(
      <div className="currentcity" >
       <h3>{this.props.currentcity}</h3>
-       
-
      </div>
     )
   }
 }
-export default withRouter(Hr)
+export default withRouter(CurrentCity )

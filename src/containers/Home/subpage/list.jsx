@@ -1,9 +1,12 @@
 import React from 'react'
-import ListC from '../../../components/List'
+import LikingList from '../../../components/List'
 import {LoadMore}from '../../../components/LoadMore'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
+import {getListData}from '../../../fetch/home/home'
  export default class List extends React.Component{
    constructor(...args){
      super(...args)
+      this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
      this.state={
        data:[],
        hasMore:true,
@@ -23,7 +26,6 @@ resultHandle(result){
         page:this.state.page+1,
         isLoadingMore:false
     })
-
   })
 }
    loadMoreData(){
@@ -32,39 +34,21 @@ this.setState({
 })
 const cityName=this.props.cityName
 const page=this.state.page
-setTimeout(()=>{
-const result=this.getListData(cityName,page)
+const result=getListData(cityName,page)
 this.resultHandle(result)
-},500)
-
    }
-
- getListData(cityName,page){
-  return   fetch(`http://localhost:8080/api/list/${cityName}/${page}`,{
-       
-       headers:{
-'Accept':'application/json,text/plain,*/*'
-       },
-       method:'GET'
-     })
-     
-     
-   }
-   componentDidMount(){   
-    
-      const result=this.getListData(this.props.cityName,0)
+   componentDidMount(){  
+      const result=getListData(this.props.cityName,1)
       this.resultHandle(result)
-  
-     
    }
 
   render(){
     return(<div>
         {
-          this.state.data.length?<ListC data={this.state.data}/>:<div>加载中。。。</div>
+          this.state.data.length?<LikingList data={this.state.data}/>:<div>加载中...</div>
         } 
         {
-          this.state.hasMore?<LoadMore loadMoreFn={this.loadMoreData.bind(this)} isLoadingMore={this.state.isLoadingMore}/>:''
+          this.state.hasMore?<LoadMore loadMoreFn={this.loadMoreData.bind(this)} isLoadingMore={this.state.isLoadingMore}/>:null
         }
 </div>)
          

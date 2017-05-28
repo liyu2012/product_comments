@@ -1,6 +1,11 @@
 import React from 'react'
 import './style.less'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
  export  class LoadMore extends React.Component{
+    constructor(...args){
+     super(...args)
+      this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
+   }
    componentDidMount(){
         let timer
      function cb(){
@@ -9,7 +14,6 @@ import './style.less'
          this.loadMore()
        }
      }
-      // console.log(window.screen.height,this.refs.loadmore.getBoundingClientRect().top)
    
      }
       window.addEventListener('scroll',()=>{
@@ -17,7 +21,7 @@ import './style.less'
           return
         }
         clearTimeout(timer)
-        timer=setTimeout(cb.bind(this),50)
+        timer=setTimeout(cb.bind(this),100)
 
       })
    }

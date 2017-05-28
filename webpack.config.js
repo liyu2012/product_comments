@@ -52,7 +52,7 @@ module.exports = {
             }, {
                 test: /\.(png|gif|svg|ttf|eot|woff|woff2|jpg|jpeg|bmp)($|\?)/i,
                 exclude: /(node_modules)/,
-                loader: 'url-loader?limit=100000'
+                loader: 'url-loader?limit=10000'
             }
         ]
     },

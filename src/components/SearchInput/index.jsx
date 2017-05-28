@@ -37,7 +37,7 @@ else{
     return(
       <div className="search-input">
         <i className="icon-spinner9"></i>
-     <input  onKeyUp={this.handleKeyup.bind(this) } value={this.state.value} onChange={this.handleChange.bind(this)} type="text"/>
+     <input  onKeyUp={this.handleKeyup.bind(this) } value={this.state.value} onChange={this.handleChange.bind(this)} placeholder="input your interested product" type="text"/>
       </div>
     )
   }

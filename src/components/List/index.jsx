@@ -1,7 +1,11 @@
 import React from 'react'
 import './style.less'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
  export default class ListC extends React.Component{
-   
+     constructor(...args){
+     super(...args)
+      this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
+   }
   render(){
  const data=this.props.data
     return(
@@ -22,13 +26,8 @@ import './style.less'
              </div> 
          })
        }
- 
 </div>
     )
-         
-    
-    
-  
 } 
 
 }

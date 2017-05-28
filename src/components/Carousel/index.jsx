@@ -1,29 +1,30 @@
- 
 import React from 'react'
 import ReactSwipe from 'react-swipe'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 import './style.less'
 import {Link} from 'react-router-dom'
 export default class Carousel extends React.Component{
 constructor(){
   super()
+   this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
   this.state={
     i:0
   }
 }
   render(){
-    const opt={
+    const opts={
       auto:2000,
       continuous:true,
-      callback:(index)=>{
+      callback:index=>
 this.setState({
   i:index
 })
 
-      }
+      
     }
     return (
      <div >
-  <ReactSwipe className="carousel" swipeOptions={opt}>
+  <ReactSwipe className="carousel" swipeOptions={opts}>
     <div><ul>
       <li><Link to={`/search/music`}><figure><i className="icon-home"></i><p>房产</p></figure></Link></li>          
       <li><Link to={`/search/music`}><figure><i className="icon-image"></i><p>照片</p></figure></Link></li>   
@@ -65,7 +66,6 @@ this.setState({
    <i className={this.state.i===0?'active':''}></i>
    <i className={this.state.i===1?'active':''}></i>
    <i className={this.state.i===2?'active':''}></i>
-   
   </div>
      </div>
      

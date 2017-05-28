@@ -1,47 +1,23 @@
 import React from 'react'
 import './style.less'
-import '../../static/icomoon/style.css'
-import SearchInput from '../SearchInput'
-import { Link,Route,withRouter,BrowserRouter as Router,browserHistory} from 'react-router-dom'
+import {withRouter}from 'react-router-dom'
  class Header extends React.Component{
-  constructor(){
-    super()
-    this.state={
-      search:''
-    }
+  back(){
+    const backRouter=this.props.backRouter
+   if(backRouter){
+this.props.history.push(backRouter)
+   }
+   else{
+     this.props.history.goBack()
+   }
   }
-  handleEnter(e){
-    this.setState({
-      search:e.target.value
-    })
-  //  console.log(this.state.search)
-  }
-//组件渲染完毕
-  componentDidMount(){
-    //console.log('has been rendered')
-  }
-  //组件更新完毕
-  componentDidUpdate(){
-    //console.log('updated the component')
-  }
- 
-  //组件即将卸载
-  componentWillUnmount(){
-   // console.log('will destoryed the component')
-  }
-
   render(){
-    return (
-     <div id="home-header" className=" clear-fix">
-         <div>
-        <Link to={`/city`}><div className="float-left home-header-left">{this.props.cityName}<i className="icon-ctrl"></i></div></Link> 
-         </div>
-      <div className="home-header-middle">
-        <div className="search-container"><SearchInput/></div>
-        </div> 
-       <div className="float-right home-header-right"><Link to="./login/user"><i className="icon-user"></i></Link></div>
+    return(
+     <div className="hr">
+       <span onClick={this.back.bind(this)}>&lt;</span>
+       <div className="text">{this.props.title}</div>
      </div>
     )
   }
 }
-export default Header
+export default withRouter(Header)
