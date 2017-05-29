@@ -65,9 +65,11 @@ return
 const id=this.props.id
 const storeActions=this.props.storeActions
 if(this.state.isStore){
+  //
   storeActions.remove({id:id})
 }
 else{
+  //
   storeActions.add({id:id})
 }
 //console.log(this.state)

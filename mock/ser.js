@@ -61,6 +61,14 @@ app.get('/api/orderlist/:user/:page', function (req, res) {
     });
     res.send(data.list);
 });
+app.post('/api/login', function (req, res) {
+    console.log('登录验证', req.body, '\n***************');
+    var resp = {
+        status: 'success',
+        statusCode: 200
+    };
+    res.send(resp);
+});
 app.post('/api/submitcomment', function (req, res) {
     console.log('订单评论', req.body, '\n***************');
     var resp = {

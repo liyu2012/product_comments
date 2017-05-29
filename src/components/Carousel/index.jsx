@@ -8,8 +8,19 @@ constructor(){
   super()
    this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
   this.state={
-    i:0
+    i:0,
+    data:[]
   }
+}
+componentDidMount(){
+  this.setState({
+    data:[
+      [{link:'house',title:'房产'},{link:'photo',title:'照片'},{link:'music',title:'音乐'},{link:'book',title:'书籍'},{link:'wifi',title:'无线网'},{link:'video',title:'视频'},{link:'finatial',title:'金融'},{link:'book',title:'核产品'}]  ,
+       [{link:'house',title:'房产'},{link:'photo',title:'照片'},{link:'music',title:'音乐'},{link:'book',title:'书籍'},{link:'wifi',title:'无线网'},{link:'video',title:'视频'},{link:'finatial',title:'金融'},{link:'book',title:'核产品'}] ,
+       [{link:'house',title:'房产'},{link:'photo',title:'照片'},{link:'music',title:'音乐'},{link:'book',title:'书籍'},{link:'wifi',title:'无线网'},{link:'video',title:'视频'},{link:'finatial',title:'金融'},{link:'book',title:'核产品'}]  ,
+      [{link:'house',title:'房产'},{link:'photo',title:'照片'},{link:'music',title:'音乐'},{link:'book',title:'书籍'},{link:'wifi',title:'无线网'},{link:'video',title:'视频'},{link:'finatial',title:'金融'},{link:'book',title:'核产品'}]  
+    ]
+  })
 }
   render(){
     const opts={
@@ -22,11 +33,14 @@ this.setState({
 
       
     }
+   // console.log(this.state.data)
+    const data=this.state.data
     return (
      <div >
   <ReactSwipe className="carousel" swipeOptions={opts}>
+
     <div><ul>
-      <li><Link to={`/search/house`}><figure><i className="icon-home"></i><p>房产</p></figure></Link></li>          
+      <li><Link to={`/search/house`}><figure><i className="icon-home"></i><p>'房产'</p></figure></Link></li>          
       <li><Link to={`/search/photos`}><figure><i className="icon-image"></i><p>照片</p></figure></Link></li>   
       <li><Link to={`/search/music`}><figure><i className="icon-headphones"></i><p>音乐</p></figure></Link></li>   
       <li><Link to={`/search/videos`}><figure><i className="icon-play"></i><p>视频</p></figure></Link></li>   

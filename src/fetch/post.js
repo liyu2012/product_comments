@@ -1,11 +1,13 @@
+ import { obj2params } from '../js/util'
  export function post(url, params) {
-     const result = fetch('api/submitcomment', {
+     console.log(params)
+     const result = fetch(url, {
          method: 'POST',
          headers: {
              'Accept': 'application/json,text/plain,*/*',
              'Content-type': 'application/x-www-form-urlencoded'
          },
-         body: params
+         body: obj2params(params)
      })
      return result
  }

@@ -5,6 +5,7 @@ import {ad} from './ad'
 import  Productdetail from './detail'
 import homelistData from './list'
 import comments from './comments'
+app.use(express.static('./dist'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.get('/api/ad',(req,res)=>{
   console.log('首页-超级特惠-请求','\n***************')

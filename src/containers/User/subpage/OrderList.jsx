@@ -31,22 +31,12 @@ this.setState({
   })
 
    }
-   obj2params(obj){
-     var result=''
-     var item
-     for(item in obj){
-       result+='&'+item+'='+encodeURIComponent(obj[item])
-     }
-     if(result){
-       result=result.slice(1)
-     }
- return result
-   }
+
    handleSubmit(id,value,cb){
-     submitComments('api/submitcomment',this.obj2params({
+     submitComments('/api/submitcomment',{
          commenttext:value,
          id
-       })).then(res=>{
+       }).then(res=>{
        return res.json()
       
      }).then(json=>{

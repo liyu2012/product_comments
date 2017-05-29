@@ -7,7 +7,8 @@ constructor(){
   super()
   this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
   this.state={
-    phone:''
+    phone:'',
+    pass:''
   }
 }
 handlePhone(e){
@@ -15,10 +16,19 @@ handlePhone(e){
     phone:e.target.value
   })
 }
+handlePass(e){
+  this.setState({
+    pass:e.target.value
+  })
+}
 handleClick(){
   const username=this.state.phone
+   const userpass=this.state.pass
   const loginHandle=this.props.loginHandle
-  loginHandle(username)
+  if(username===''||username==null||userpass==''||userpass==null){
+    return false
+  }
+  loginHandle(username,userpass)
 }
   render(){
      
@@ -26,7 +36,7 @@ handleClick(){
       <div className="login-component">
         <i className="icon-phone"></i>
       <input type="text" onChange={this.handlePhone.bind(this)} value={this.state.phone} placeholder="input your telephone number"/>
-        <i className="icon-hammer"></i><input type="text" placeholder="input your authorition number from message"/>
+        <i className="icon-hammer"></i><input  onChange={this.handlePass.bind(this)}  type="password" placeholder="input your authorition number from message"/>
         <span>发送验证码</span>
        <button onClick={this.handleClick.bind(this)}>登录</button>
       </div>

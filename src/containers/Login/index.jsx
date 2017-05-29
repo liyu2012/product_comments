@@ -5,12 +5,15 @@ import Header from '../../components/Header'
 import actions from'../../actions/userinfo'
 import LoginComponent from '../../components/LoginComponent'
 import PureRenderMixin from 'react-addons-pure-render-mixin' 
+import {postLoginData} from '../../fetch/login/login'
+
 class Login extends React.Component{
   constructor(){
     super()
       this.shouldComponentUpdate=PureRenderMixin.shouldComponentUpdate
     this.state={
-      checking:true
+      checking:true,
+      isPassed:false
     }
   }
 goUserPage(){
@@ -37,13 +40,19 @@ this.setState({
         </div>
     )
   }
-loginHandle(username){
+loginHandle(username,pass){
+ postLoginData(username,pass).then(res=>res.json()).then(
+   json=>{
+     if(json.status==='success')
+this.setState({
+  isPassed:true
+})
+
+if(this.state.isPassed){
   const actions=this.props.userInfoActions
   let userinfo=this.props.userinfo
   userinfo.username=username
   actions.update(userinfo)
-  // navigate to userpage
-  console.log(this.props.match)
   const match=this.props.match
   if(this.props.match.params.route){
 this.props.history.push(`/${match.params.route}/${match.params.id}`)
@@ -51,6 +60,17 @@ this.props.history.push(`/${match.params.route}/${match.params.id}`)
   else{
 this.goUserPage()
   }
+  return true
+ }
+
+  else{
+   return false
+ }
+   }
+ )
+ 
+
+
 }
   componentDidMount(){
     this.doCheck()
